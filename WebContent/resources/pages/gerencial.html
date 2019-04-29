@@ -1,0 +1,154 @@
+<div class="container-fluid" ng-controller="GerencialFormCrtl as controller">
+	<div class="row">
+		<div class="col">
+			<form name="gerencialForm" ng-submit="controller.salvarCliente(controller.cliente)">
+				<div class="row clearfix form-group " >
+	
+					<div class="col-md-5" ng-class="{'has-error': gerencialForm.nomeUsua.$invalid && gerencialForm.nomeUsua.$dirty,
+												   'has-success': gerencialForm.nomeUsua.$valid   && gerencialForm.nomeUsua.$dirty}">
+						<div class="row form-line">
+							<label for="nomeUsua">Nome completo:</label>
+							<input type="text" class="form-control" id="nomeUsua" name="nomeUsua" placeholder="nome completo" ng-model="controller.cliente.nomeUsua" required>
+							
+						</div>
+						<div class="row">
+							<span style="color:red" ng-show="gerencialForm.nomeUsua.$dirty && gerencialForm.nomeUsua.$invalid" class="ng-hide">   
+								Campo nome invalido!  
+							</span>
+						</div>
+					</div>
+	
+					<div class="col-md-1"></div>
+	
+					<div class="col-md-5" ng-class="{'has-error': gerencialForm.email.$invalid && gerencialForm.email.$dirty,
+															'has-success': gerencialForm.email.$valid   && gerencialForm.email.$dirty}">
+						<div class="row  form-line">
+							<label for="email">Email:</label>
+							<input type="email" class="form-control" id="email" name="email" placeholder="nome@example.com" ng-model="controller.cliente.email" required>
+						</div>
+						<div class="row">
+							<span style="color:red" ng-show="gerencialForm.email.$dirty && gerencialForm.email.$invalid" class="ng-hide">   
+								Campo email invalido!  
+							</span>
+						</div>
+					</div>
+	
+					<div class="col-md-5" ng-class="{'has-error': gerencialForm.cpf.$invalid && gerencialForm.cpf.$dirty,
+															' has-success': gerencialForm.cpf.$valid   && gerencialForm.cpf.$dirty}">
+						<div class="row form-line">									
+							<label for="cpf">Cpf:</label>
+							<input ui-mask="999.999.999-99" placeholder="xxx.xxx.xxx-xx" type="text" class="form-control" id="cpf" name="cpf" ng-model="controller.cliente.cpf" required
+								   ng-pattern="/([0-9]{2}[\.]?[0-9]{3}[\.]?[0-9]{3}[\/]?[0-9]{4}[-]?[0-9]{2})|([0-9]{3}[\.]?[0-9]{3}[\.]?[0-9]{3}[-]?[0-9]{2})/">
+						</div>
+						<div class="row">
+							<span style="color:red" ng-show="gerencialForm.cpf.$dirty && gerencialForm.cpf.$invalid" class="ng-hide">   
+								Campo cpf invalido!  
+							</span>
+						</div>
+					</div>
+					
+					<div class="col-md-1"></div>
+	
+					<div class="col-md-5">
+						
+					</div>
+	
+					<div class="col-md-5" ng-class="{'has-error': gerencialForm.bairro.$invalid && gerencialForm.bairro.$dirty,
+															'has-success': gerencialForm.bairro.$valid   && gerencialForm.bairro.$dirty}">
+						<div class="row form-line">
+							<label for="bairro">Bairro:</label>
+							<input type="text" class="form-control" id="bairro" name="bairro" placeholder="Informe seu bairro"  ng-model="controller.cliente.bairro" required>
+						</div>
+						<div class="row">
+							<span style="color:red" ng-show="gerencialForm.bairro.$dirty && gerencialForm.bairro.$invalid" class="ng-hide">   
+								Campo Bairro invalido!  
+							</span>
+						</div>
+					</div>
+					
+					<div class="col-md-1"></div>
+	
+					<div class="col-md-5" ng-class="{'has-error': gerencialForm.endereco.$invalid && gerencialForm.endereco.$dirty,
+															'has-success': gerencialForm.endereco.$valid   && gerencialForm.endereco.$dirty}">
+						<div class="row form-line">								
+							<label for="endereco">Endereco:</label>
+							<input type="text" class="form-control" id="endereco" name="endereco" placeholder="rua das palmeiras"  ng-model="controller.cliente.endereco" required>
+						</div>
+						<div class="row">
+							<span style="color:red" ng-show="gerencialForm.endereco.$dirty && gerencialForm.endereco.$invalid" class="ng-hide">   
+								Campo Endereco invalido!  
+							</span>
+						</div>
+					</div>
+	
+					<div class="col-md-5" ng-class="{'has-error': gerencialForm.telComercial.$invalid && gerencialForm.telComercial.$dirty,
+															 'has-success': gerencialForm.telComercial.$valid   && gerencialForm.telComercial.$dirty}">
+						<div class="row form-line">
+							<label for="telComercial">Telefone Comercial:</label>
+							<input ui-mask="99 9999-9999" type="text" class="form-control" id="telComercial" name="telComercial" placeholder="xx xxxx-xxxx" 
+								ng-model="controller.cliente.telComercial" ng-required="true"
+								ng-pattern="/^\(?\d{2}\)?[\s-]?[\s9]?\d{4}-?\d{4}$/g">
+						</div>
+						<div class="row">
+							<span style="color:red" ng-show="gerencialForm.telComercial.$dirty && gerencialForm.telComercial.$invalid" class="ng-hide">   
+								Campo telefone comercial invalido!  
+							</span>
+						</div>
+					</div>
+					
+					<div class="col-md-1"></div>
+	
+					<div class="col-md-5" ng-class="{'has-error': gerencialForm.telCelular.$invalid && gerencialForm.telCelular.$dirty,
+															 'has-success': gerencialForm.telCelular.$valid   && gerencialForm.telCelular.$dirty}">
+						<div class="row form-line">
+							
+							<label for="telCelular">Telefone Celular</label>
+							<input  ui-mask="99 9999-9999" type="text" class="form-control" id="telCelular" name="telCelular" placeholder="xx xxxx-xxxx"  ng-model="controller.cliente.telCelular"
+									required ng-pattern="/^\(?\d{2}\)?[\s-]?[\s9]?\d{4}-?\d{4}$/g">					
+						</div>
+						<div class="row">
+							<span style="color:red" ng-show="gerencialForm.telCelular.$dirty && gerencialForm.telCelular.$invalid" class="ng-hide">   
+								Campo telefone celular invalido!  
+							</span>  
+						</div>
+					</div>				
+	
+					<div class="col text-right">
+						<button type="submit" class="btn btn-success" ng-disabled="gerencialForm.$invalid">Salvar</button>
+						<button type="button" class="btn btn-warning" ng-click="controller.novoCliente()">Cancelar</button>
+					</div>		
+				</div>	
+			</form>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col">
+			<strong> Clientes Cadastrados:</strong>
+			<div class="table-responsive col-sm-12">
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th>Nome completo</th>
+							<th>Telefone Celular</th>
+							<th>email</th>
+							<th>cpf</th>
+							<th>Acoes</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="cliente in controller.clientes | filter: controller.pesquisa">  
+							<td>{{cliente.nomeUsua   | uppercase}}</td>
+							<td>{{cliente.telCelular | uppercase }}</td>
+							<td>{{cliente.email}}</td>
+							<td>{{cliente.cpf}}</td>
+							<td>
+								<button type="button" class="btn btn-warning" ng-click="controller.selecionarCliente(cliente)">Editar</button>
+								<button type="button" class="btn btn-danger" ng-click="controller.removerCliente(cliente)">Remover</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>				
+</div>		
